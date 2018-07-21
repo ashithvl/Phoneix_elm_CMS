@@ -1,0 +1,30 @@
+  <div class="row center-row">
+    <div class="col-md-6">
+      <h2 class="text-success">Users</h2>
+    </div>
+    <div class="col-md-6">
+      <div class="pull-right text-center">
+          <%= link "Back",to: admin_path(@conn, :index), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <table class="table table-bordered table-hover text-center table-condensed">
+    <thead>
+      <tr class="info">
+        <td><p class="lead">Name</p></td>
+        <td><p class="lead">Balance</p></td>
+        <td><p class="lead">History</p></td>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for user <- @users do %>
+        <tr>
+          <td><p class="lead"><%= elem(user, 0) %></p></td>
+          <td><p class="lead"><%= elem(user, 1) %></p></td>
+          <td>
+            <%= link "Show",to: admin_path(@conn, :showUserHistory, elem(user, 2)), class: "btn btn-primary" %>
+          </td>
+         </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hello ElmPhxDbTodo!</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Sample App</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <%= if @conn.assigns[:user] do %>
+              <li>
+                <a class="lead" href="#">Signed in as <%=  @conn.assigns.user.name %></a>
+              </li>
+              <li>
+                <%= button "Sign Out", to: auth_path(@conn, :signout), class: "btn btn-danger navbar-btn" %>
+              </li>
+              <%= else %>
+              <li>
+                <%= button "Sign in", to: auth_path(@conn, :index), class: "btn btn-success navbar-btn" %>
+              </li>
+            <% end %>
+            <li class="left"></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+        <main role="main">
+          <%= render @view_module, @view_template, assigns %>
+        </main>
+        </div>
+    </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

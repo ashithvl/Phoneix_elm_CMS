@@ -1,0 +1,1 @@
+var _user$project$OtherFile$otherText = _elm_lang$html$Html$text('Hello !! From Imported Other File !!');

@@ -1,0 +1,17 @@
+  <h2 class="text-success">Welcome Administrator</h2>
+  <table class="table table-borderless table-condensed table-hover">
+    <tbody>
+      <tr>
+        <td><p class="lead">Show Inventory Items</p></td>
+        <td>
+          <%= link "Show",to: admin_path(@conn, :showInventory), class: "btn btn-info" %>
+        </td>
+      </tr>
+      <tr>
+        <td><p class="lead">Show Users</p></td>
+        <td>
+          <%= link "Show",to: admin_path(@conn, :showUser), class: "btn btn-info" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>

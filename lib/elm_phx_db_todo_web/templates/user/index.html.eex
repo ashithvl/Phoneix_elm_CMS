@@ -1,0 +1,33 @@
+  <div class="row center-row">
+    <div class="col-md-6">
+      <h2 class="text-success">Inventory Items</h2>
+    </div>
+    <div class="col-md-6">
+      <div class="pull-right text-center">
+        <%= link "Cart",to: user_path(@conn, :cart, @conn.assigns.user.id), class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+  <p class="bg-primary lee">Your balance is Rs.<%= @balance %></p>
+  <table class="table table-bordered table-hover text-center table-condensed">
+    <thead>
+      <tr class="info">
+        <td><p class="lead">Item</p></td>
+        <td><p class="lead">Price</p></td>
+        <td><p class="lead">Count</p></td>
+        <td><p class="lead">Buy</p></td>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for item <- @items do %>
+        <tr>
+          <td><p class="lead"><%= item.item %></p></td>
+          <td><p class="lead">Rs <%=item.price %></p></td>
+          <td><p class="lead"><%= item.count %></p></td>
+          <td>
+            <%= link "Add",to: user_path(@conn, :addItem, item.id,  @conn.assigns.user.id), class: "btn btn-success" %>
+          </td>
+         </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -1,0 +1,26 @@
+/* This file is for your main application css. */
+.table-borderless td,
+.table-borderless th {
+    border-top: 0px!important;
+}
+.center-row {
+    display: flex;
+    align-items: center;
+}
+.lead {
+  margin-bottom: 0px!important;
+}
+
+.help-block {
+  color: red!important;
+  text-transform: capitalize;
+}
+.left {
+  margin-left: 10px;
+}
+.lee {
+  padding: 10px;
+  border-left-color: black;
+  border-radius: 2px;
+  border-left-style: solid;
+}

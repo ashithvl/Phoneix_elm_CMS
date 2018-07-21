@@ -1,0 +1,33 @@
+<div class="row center-row">
+  <div class="col-md-6">
+    <h2 class="text-success">Cart</h2>
+  </div>
+  <div class="col-md-6">
+    <div class="pull-right text-center">
+      <%= link "Back",to: user_path(@conn, :index), class: "btn btn-primary" %>
+      <%= link "Remove All",to: user_path(@conn, :deleteCart, @conn.assigns.user.id), class: "btn btn-danger" %>
+      <%= link "Check Out",to: user_path(@conn, :checkout, @conn.assigns.user.id), class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<table class="table table-bordered table-hover text-center table-condensed">
+  <thead>
+    <tr class="info">
+      <td><p class="lead">Item</p></td>
+      <td><p class="lead">Price</p></td>
+      <td><p class="lead">Count</p></td>
+      <td><p class="lead">Total</p></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for item <- @items do %>
+      <tr>
+        <td><p class="lead"><%= elem(item, 0)%></p></td>
+        <td><p class="lead">Rs <%= elem(item, 1) %></p></td>
+        <td><p class="lead"><%= elem(item, 2) %> Items</p></td>
+        <td><p class="lead">Rs <%= elem(item, 3) %></p></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+<h2 class="pull-right">Total: Rs.<%= elem(@total,0) %></h2>

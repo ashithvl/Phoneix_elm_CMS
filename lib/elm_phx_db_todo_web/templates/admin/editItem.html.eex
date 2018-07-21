@@ -1,0 +1,23 @@
+<div class="row center-row">
+  <div class="col-md-6">
+    <h2 class="text-success">Inventory Items</h2>
+  </div>
+  <div class="col-md-6">
+    <div class="pull-right text-center">
+      <%= link "Back",to: admin_path(@conn, :showInventory), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<%= form_for @changeset, admin_path(@conn, :updateItem, @item), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :item, placeholder: "Item Name", class: "form-control" %>
+    <%= error_tag f, :item %>
+    <br>
+    <%= number_input f, :price, placeholder: "Price", class: "form-control" %>
+    <%= error_tag f, :price %>
+    <br>
+    <%= number_input f, :count, placeholder: "Count", class: "form-control" %>
+    <%= error_tag f, :count %>
+  </div>
+  <%= submit "Update Item", class: "btn btn-success" %>
+<% end %>
